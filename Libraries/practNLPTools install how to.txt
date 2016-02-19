@@ -1,0 +1,33 @@
+As a stopgap measure, the tool at this link is being used as the parser for the program
+
+https://github.com/biplab-iitb/practNLPTools
+
+How to install:
+First download the .zip of the repository
+After doing that, unzip the repository
+Inside you will find a python file called setup.py
+
+If you are in linux: run:
+sudo python setup.py install 
+
+If you are in windows: run this commands as administrator:
+python setup.py install
+
+
+
+How to use the library:
+First import the tools into the respective python module
+	from practnlptools.tools import Annotator
+
+Then, create a new Annotator object
+	annotator=Annotator()
+
+Finally, to actually do the parse call
+	parse = annotator.getAnnotations("Here is the text I will parse")
+
+You can then get various information from the parse data structure. For example
+	parse['verbs']
+	>>>[A list of all of the verbs inside the text]
+
+	notes['syntax_tree']
+	>>>A representation of the syntax tree of the text.
