@@ -8,7 +8,7 @@ desc:
 
 import sys
 from inc.ArticleParser import ingest, augment
-from inc.Questions import articleToQuestion, bestQuestion
+from inc.Questions import articleToQuestion, determineBestQuestions
 
 # Generates numQuestions questions about the article in fileName
 def main(fileName, numQuestions):
@@ -25,7 +25,7 @@ def main(fileName, numQuestions):
     questions = articleToQuestion(article)
 
     # Find the top questions
-    bestQuestions = bestQuestion(questions, numQuestions)
+    bestQuestions = determineBestQuestions(questions, numQuestions)
 
     # Print the best questions
     for question in bestQuestions:

@@ -13,6 +13,6 @@ def articleToQuestion(article):
     return []
 
 # Returns the top num questions in questions.
-def bestQuestion(questions, num):
+def determineBestQuestions(questions, num):
     # NYI
     return []

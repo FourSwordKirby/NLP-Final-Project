@@ -32,6 +32,25 @@ print "what"
 # sentences in fileName.
 def ingest(fileName):
     # NYI
+    articleFile = open(fileName)
+
+    headings = [];
+    currentHeading = "";
+    for paragraph in articleFile :
+        paragraph = paragraph.rstrip()
+        sentences = paragraph.split(".")
+
+        print len(sentences)
+
+        if(len(sentences) == 1 and not(paragraph == "")):
+            currentHeading = paragraph
+            
+        if(not(currentHeading == "") and paragraph == ""):
+            headings.append(currentHeading)
+            currentHeading = ""
+
+    articleFile.close()
+    print headings
     return {}
 
 # Maps each sentence to a list of derived sentences, then flattens.
