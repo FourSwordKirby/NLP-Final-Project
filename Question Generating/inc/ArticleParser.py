@@ -31,23 +31,24 @@ print "what"
 # Returns a dictionary of {heading : paragraph} where a paragraph is a list of
 # sentences in fileName.
 def ingest(fileName):
-    # NYI
     articleFile = open(fileName)
 
     headings = [];
     currentHeading = "";
+    previousSentence = "";
+
     for paragraph in articleFile :
         paragraph = paragraph.rstrip()
         sentences = paragraph.split(".")
 
-        print len(sentences)
-
-        if(len(sentences) == 1 and not(paragraph == "")):
+        if(len(sentences) == 1 and not(paragraph == "") and previousSentence == ""):
             currentHeading = paragraph
             
         if(not(currentHeading == "") and paragraph == ""):
             headings.append(currentHeading)
             currentHeading = ""
+
+        previousSentence = paragraph;
 
     articleFile.close()
     print headings

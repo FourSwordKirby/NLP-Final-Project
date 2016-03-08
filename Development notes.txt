@@ -1,0 +1,9 @@
+Question Module:
+Make the parser run faster by getting it to start once, and then pinging it continually from the applications.
+Need to build a evaluation suite
+
+Answer Generating:
+Get people to generate individual questions. Figure out how to collate them into a similar patterns.
+
+Note:
+Try to figure out interesting diversity in the system. ie. can we ask/answer unique questions.
