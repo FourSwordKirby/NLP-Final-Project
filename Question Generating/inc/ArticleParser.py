@@ -34,6 +34,8 @@ def ingest(fileName):
     articleFile = open(fileName)
 
     headings = [];
+
+    article = dict();
     currentHeading = "";
     previousSentence = "";
 
@@ -43,16 +45,18 @@ def ingest(fileName):
 
         if(len(sentences) == 1 and not(paragraph == "") and previousSentence == ""):
             currentHeading = paragraph
-            
-        if(not(currentHeading == "") and paragraph == ""):
+            article[currentHeading] = [];
+        elif(not(currentHeading == "") and paragraph == ""):
             headings.append(currentHeading)
             currentHeading = ""
+        elif(not(currentHeading == "")):
+            article[currentHeading].append(paragraph);
 
         previousSentence = paragraph;
 
     articleFile.close()
-    print headings
-    return {}
+    #print headings
+    return article
 
 # Maps each sentence to a list of derived sentences, then flattens.
 # eg. pronoun resolution, ``Harry potter, the boy who lived,''
