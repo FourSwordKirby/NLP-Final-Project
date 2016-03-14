@@ -3,6 +3,8 @@ import math
 
 import nltk
 
+import re
+
 """
 from nltk.parse.stanford import StanfordParser
 from nltk.parse.stanford import StanfordDependencyParser
@@ -33,29 +35,25 @@ print "what"
 def ingest(fileName):
     articleFile = open(fileName)
 
-    headings = [];
-
     article = dict();
     currentHeading = "";
     previousSentence = "";
 
     for paragraph in articleFile :
         paragraph = paragraph.rstrip()
-        sentences = paragraph.split(".")
+        sentences = re.split('\\.',paragraph)
 
         if(len(sentences) == 1 and not(paragraph == "") and previousSentence == ""):
             currentHeading = paragraph
             article[currentHeading] = [];
-        elif(not(currentHeading == "") and paragraph == ""):
-            headings.append(currentHeading)
-            currentHeading = ""
         elif(not(currentHeading == "")):
-            article[currentHeading].append(paragraph);
+            for sentence in sentences:
+                if(not (sentence == "")):
+                    article[currentHeading].append(sentence)
 
         previousSentence = paragraph;
 
     articleFile.close()
-    #print headings
     return article
 
 # Maps each sentence to a list of derived sentences, then flattens.

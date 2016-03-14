@@ -17,17 +17,17 @@ def main(fileName, numQuestions):
     # heading and the value is the list of sentences.
     article = ingest(fileName)
 
-    print article.keys()
-
     # for each sentence in sentences, form a list of augmented sentences
     for (heading, paragraph) in article.iteritems():
         article[heading] = augment(paragraph)
 
+    print "This is the article : \n"  + str(article) + "\n\n"
+
     # Transforms the sentences in the article into a list of questions.
     questions = articleToQuestion(article)
 
-    print questions
-
+    print "Here are the questions : \n"  + str(questions)
+    
     # Find the top questions
     bestQuestions = determineBestQuestions(questions, numQuestions)
 
