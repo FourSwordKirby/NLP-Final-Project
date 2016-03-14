@@ -1,6 +1,12 @@
+#usage of fuzzywuzzy: pip install git+git://github.com/seatgeek/fuzzywuzzy.git@0.10.0#egg=fuzzywuzzy
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+#usage of nltk: find the whl package at http://www.lfd.uci.edu/~gohlke/pythonlibs/#nltk 
 from nltk import tokenize
+
+# This script searches through an article with a question and finds the target sentence that 
+# is mostly likely to contain the answer.
+
 
 #q1 and q2 are two sample questions
 q1 = "Is Chinese a branch of the Sino-Tibetan language family?"
