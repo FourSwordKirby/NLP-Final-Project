@@ -62,6 +62,6 @@ def ingest(fileName):
 # eg. pronoun resolution, ``Harry potter, the boy who lived,''
 def augment(paragraph):
     # NYI
-    return []
+    return paragraph
 
 
