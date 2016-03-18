@@ -1,4 +1,4 @@
-As a stopgap measure, the tool at this link is being used as the parser for the program
+This tool is a dependency parser. May need to compare and contrast it's effectiveness vs. the Stanford Parser
 
 https://github.com/biplab-iitb/practNLPTools
 
