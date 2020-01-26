@@ -1,0 +1,7 @@
+Download linguistics.zip from this site:
+	https://www.nodebox.net/code/index.php/Linguistics#loading_the_library
+
+From here unzip the folder and move the en folder to the desired directory.
+
+By doing import en, you get access to the suite of tools in this library, including things like 
+changing word tenses.

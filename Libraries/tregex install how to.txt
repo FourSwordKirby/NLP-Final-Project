@@ -1,0 +1,35 @@
+Download version 3.5.2 of tregex from this link:
+	http://nlp.stanford.edu/software/tregex.shtml#Download
+
+One downloaded, verify that you are able to search for tregex patterns by following these steps.
+
+	Unzip the downloaded folder
+	Inside that folder, double click on stanford-tregex-3.5.2
+	In the resulting GUI, click tools -> options and check off Enable Tsurgeon
+	Load a tree into the program by doing File -> Load Trees and then select the file atree inside the examples folder
+	Type in corresponding patterns and tsurgeon scripts and verify the results. Here are some sample inputs
+
+		Pattern: NP < (NP=np < NNS) < (NP=np1 < NN)
+		Tsurgeon Script: relabel np S
+
+	The pattern search result should be that you matched the sentence "Try this wine and these snals ."
+	The Tsurgeon result should be the tree with the rightmost NP replaced with a S.
+
+NOTE: if you are working on windows, you might find that you get an error like
+
+	"Error: Could not find or load main class edu.stanford.nlp.trees.tregex.tusrgeon.Tsurgeon"
+
+To fix this, change the code in tregex.sh and tsurgeon.sh to the following:
+
+
+For tregex:
+#!/bin/sh
+scriptdir=`dirname $0`
+
+java -mx100m -cp $scriptdir/stanford-tregex.jar edu.stanford.nlp.trees.tregex.TregexPattern "$@"
+
+
+For tsurgeon:
+#!/bin/sh
+
+java -mx100m -cp stanford-tregex.jar edu.stanford.nlp.trees.tregex.tsurgeon.Tsurgeon "$@"

@@ -4,22 +4,22 @@ How to get it working:
 
 1. download the stanford-parser from  http://nlp.stanford.edu/software/lex-parser.shtml
 and unzip the file. [let's say the path of the extracted folder is <parser-path> on your system.]
+	-Make sure that you download version 3.5.2
+
+2. To get the stanford parser working from the command line do the following
+	Extract the following file from the stanford-parser-3.5.2-models jar file
+		stanford-parser-3.5.2-models.jar\edu\stanford\nlp\models\lexparser\englishPCFG.ser
+
+3. By setting inputFileLocation, outputFileLocation, and the parser location correctly, you should be able to run and
+see output from the following code
+
+inputFileLocation = "1.txt"
+outputFileLocation = "results.txt"
+parserLocation = "../Libraries/stanford-parser"
+command = "java -classpath %s/stanford-parser.jar -mx512m edu.stanford.nlp.parser.lexparser.LexicalizedParser %s/" \
+           "stanford-parser-3.5.2-models/englishPCFG.ser.gz %s >> %s" % (parserLocation, parserLocation, inputFileLocation, outputFileLocation)
+
+subprocess.call(command, shell=True)
 
 
-
-2. Example python code:
-
-import os
-from nltk.parse.stanford import StanfordParser
-os.environ['JAVAHOME'] = 'C:/Program Files/Java/jdk1.8.0_40/bin'  #or your java path
-os.environ['CLASSPATH'] = '<parser-path>/stanford-parser.jar'
-os.environ['STANFORD_MODELS'] = '<parser-path>/stanford-parser-3.5.2-models.jar'  
-# I am using version 3.5.2 because apparently it is the more stable version, you should replace 3.5.2 with whatever version you're using
-
-sentence = "hello world"
-parser=StanfordParser()
-print list(parser.raw_parse(sentence))
-
-
-Expected output of python code:
-[Tree('ROOT', [Tree('NP', [Tree('JJ', ['hello']), Tree('NN', ['world'])])])]
+Essentially, you need to make sure that the .jar location and the location of the englishPCFG are correct

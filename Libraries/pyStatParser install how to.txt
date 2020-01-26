@@ -1,0 +1,9 @@
+On Linux:
+wget https://github.com/emilmont/pyStatParser.git
+sudo python setup.py install
+
+On Windows:
+Download the zip file from: https://github.com/emilmont/pyStatParser.git
+Navigate to the pyStatParser-master folder and run 
+	python setup.py install
+Inside bash for that folder

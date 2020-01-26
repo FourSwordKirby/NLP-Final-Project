@@ -1,0 +1,10 @@
+1)
+
+> pip install --upgrade 3to2
+> pip install --upgrade language-check
+
+2)
+
+If that doesn't work, or you don't have pip, go to
+https://pypi.python.org/pypi/language-check
+There should be a .tar.gz file to download and try to get running.

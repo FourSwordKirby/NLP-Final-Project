@@ -1,5 +1,6 @@
 # NLP-Final-Project
 
+Authors: Kevin Au
 
 ## Installation Instructions
 

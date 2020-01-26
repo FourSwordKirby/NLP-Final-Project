@@ -1,0 +1,23 @@
+1. Go to http://nlp.stanford.edu/software/CRF-NER.shtml; scroll down and download 3.5.2 version of NER.
+
+2. Try these codes:
+
+import nltk
+
+from nltk.tag import StanfordNERTagger
+
+import os
+java_path = "[YOUR PATH OF "java.exe"]"
+os.environ['JAVAHOME'] = java_path
+
+
+st = StanfordNERTagger('[YOUR PATH OF "english.all.3class.distsim.crf.ser.gz"]',
+               '[YOUR PATH OF "stanford-ner.jar"]')
+
+r = st.tag('Rami Eid is studying at Stony Brook University in New York'.split())
+print(r) 
+
+3. Expected output:
+[(u'Rami', u'PERSON'), (u'Eid', u'PERSON'), (u'is', u'O'), (u'studying', u'O'), (u'at', u'O'), (u'Stony', u'ORGANIZATION'), (u'Brook', u'ORGANIZATION'), (u'University', u'ORGANIZATION'), (u'in', u'O'), (u'New', u'LOCATION'), (u'York', u'LOCATION')]
+
+Note: There are mainly three classes: PERSON, ORGANIZATION, LOCATION
